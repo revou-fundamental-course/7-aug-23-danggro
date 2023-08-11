@@ -13,21 +13,23 @@
         <div id="container-luas" class="container">
           <div id="img-segitiga"></div>
           <form action="" id="form-luas">
+            <label for="alas">Alas Segitiga</label>
             <input
               type="number"
               name="alas"
               id="alas"
               placeholder="Nilai Alas"
             />
+            <label for="tinggi">Tinggi Segitiga</label>
             <input
               type="number"
               name="tinggi"
               id="tinggi"
               placeholder="Nilai Alas"
             />
-            <button id="button">Hitung</button>
+            <button id="submit-luas">Hitung</button>
           </form>
-          <button>Reset</button>
+          <button id="reset-luas">Reset</button>
         </div>
         <div id="rumus-luas">
           <p>Rumus Luas Segitiga yaitu :</p>
@@ -39,34 +41,29 @@
         </div>
       </section>
 
-      <section id="luas">
-        <h1>Kalkulator Luas Segitiga</h1>
-        <div id="container-luas" class="container">
+      <section id="keliling">
+        <h1>Kalkulator Keliling Segitiga</h1>
+        <div id="container-keliling" class="container">
           <div id="img-segitiga"></div>
-          <form action="" id="form-luas">
-            <input
-              type="number"
-              name="alas"
-              id="alas"
-              placeholder="Nilai Alas"
-            />
-            <input
-              type="number"
-              name="tinggi"
-              id="tinggi"
-              placeholder="Nilai Alas"
-            />
-            <button id="button">Hitung</button>
+          <form action="" id="form-keliling">
+            <label for="alas">Sisi A Segitiga</label>
+            <input type="number" name="A" id="A" placeholder="Nilai Sisi A" />
+            <label for="alas">Sisi B Segitiga</label>
+            <input type="number" name="B" id="B" placeholder="Nilai Sisi B" />
+            <label for="alas">Sisi C Segitiga</label>
+            <input type="number" name="C" id="C" placeholder="Nilai Sisi C" />
+
+            <button id="submit-keliling">Hitung</button>
           </form>
-          <button>Reset</button>
+          <button id="reset-keliling">Reset</button>
         </div>
-        <div id="rumus-luas">
-          <p>Rumus Luas Segitiga yaitu :</p>
-          <p>L = 1/2 x a x t</p>
+        <div id="rumus-keliling">
+          <p>Rumus Keliling Segitiga yaitu :</p>
+          <p>L = A + B + C</p>
           <p>Dimana:</p>
-          <p>L = Luas</p>
-          <p>a = Panjang Alas</p>
-          <p>T = Tinggi Segitiga</p>
+          <p>A = Sisi A</p>
+          <p>B = Sisi B</p>
+          <p>C = Sisi C</p>
         </div>
       </section>
     </main>

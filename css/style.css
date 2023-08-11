@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400;10..48,500;10..48,600;10..48,700&display=swap');
+
+:root {
+  --primary: #00ebc7;
+  --secondary: #ff5470;
+  --tertiary: #fde24f;
+  --white: #fffffe;
+  --text: #00214d;
+}
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+  list-style: none;
+}
+
+/* HTML */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body */
+body {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  height: 100vh;
+  background-color: var(--white);
+}
+
+/* Main */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 8%;
+}
+
+/* Section */
+section {
+  border: 2px solid var(--secondary);
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+section h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 0.2rem;
+}
+
+form input {
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--secondary);
+  padding: 0.5rem 1rem;
+}
