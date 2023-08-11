@@ -29,6 +29,7 @@ body {
   font-family: 'Bricolage Grotesque', sans-serif;
   height: 100vh;
   background-color: var(--white);
+  color: var(--text);
 }
 
 /* Main */
@@ -55,18 +56,136 @@ section h1 {
   text-align: center;
 }
 
+/* Image Segitiga */
+#img-luas-segitiga,
+#img-keliling-segitiga {
+  display: grid;
+  place-items: center;
+  height: 9rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+#img-luas-segitiga span,
+#img-keliling-segitiga span {
+  display: block;
+  width: 10rem;
+  height: 4px;
+  background-color: var(--text);
+  position: absolute;
+  bottom: 0;
+}
+
+.sisi-a {
+  transform: rotate(-60deg);
+  transform-origin: left;
+}
+
+.sisi-c {
+  transform: rotate(60deg);
+  transform-origin: right;
+}
+
+#sisi-tinggi {
+  transform: scaleY(85%) rotate(90deg) translate(-50%);
+}
+
+#sisi-alas::after,
+#sisi-tinggi::after,
+#sisi-A::after,
+#sisi-B::after,
+#sisi-C::after {
+  font-size: 1.25rem;
+  position: absolute;
+}
+
+#sisi-alas::after {
+  content: 'a';
+  left: 47%;
+  top: 100%;
+}
+
+#sisi-tinggi::after {
+  content: 'T';
+  left: 50%;
+  top: 100%;
+  transform: rotate(-90deg);
+}
+
+#sisi-A::after {
+  content: 'A';
+  left: 47%;
+  bottom: 200%;
+  transform: rotate(60deg);
+}
+#sisi-B::after {
+  content: 'B';
+  left: 47%;
+  top: 100%;
+}
+#sisi-C::after {
+  content: 'C';
+  left: 47%;
+  bottom: 200%;
+  transform: rotate(-60deg);
+}
 /* Form */
 form {
   display: flex;
   flex-direction: column;
 }
 
+form div:first-child {
+  display: flex;
+  column-gap: 1.5rem;
+}
+
+form .container-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
 form label {
-  margin-bottom: 0.2rem;
+  width: fit-content;
 }
 
 form input {
   margin-bottom: 0.5rem;
   border: 1px solid var(--secondary);
   padding: 0.5rem 1rem;
+  outline: none;
+  appearance: textfield;
+  max-width: 7rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+form button {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+form button:hover {
+  opacity: 60%;
+}
+
+form div:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#submit-luas,
+#submit-keliling {
+  background-color: var(--primary);
+}
+
+#reset-luas,
+#reset-keliling {
+  background-color: var(--tertiary);
 }

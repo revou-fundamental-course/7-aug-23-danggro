@@ -10,26 +10,39 @@
     <main>
       <section id="luas">
         <h1>Kalkulator Luas Segitiga</h1>
+        <div id="img-luas-segitiga">
+          <span class="sisi-a"></span>
+          <span class="sisi-b" id="sisi-alas"></span>
+          <span class="sisi-c"></span>
+          <span id="sisi-tinggi"></span>
+        </div>
         <div id="container-luas" class="container">
-          <div id="img-segitiga"></div>
           <form action="" id="form-luas">
-            <label for="alas">Alas Segitiga</label>
-            <input
-              type="number"
-              name="alas"
-              id="alas"
-              placeholder="Nilai Alas"
-            />
-            <label for="tinggi">Tinggi Segitiga</label>
-            <input
-              type="number"
-              name="tinggi"
-              id="tinggi"
-              placeholder="Nilai Alas"
-            />
-            <button id="submit-luas">Hitung</button>
+            <div>
+              <div class="container-input">
+                <label for="alas">Alas Segitiga (a)</label>
+                <input
+                  type="number"
+                  name="alas"
+                  id="alas"
+                  placeholder="Nilai Alas"
+                />
+              </div>
+              <div class="container-input">
+                <label for="tinggi">Tinggi Segitiga (T)</label>
+                <input
+                  type="number"
+                  name="tinggi"
+                  id="tinggi"
+                  placeholder="Nilai Alas"
+                />
+              </div>
+            </div>
+            <div>
+              <button id="submit-luas">Hitung</button>
+              <button id="reset-luas">Reset</button>
+            </div>
           </form>
-          <button id="reset-luas">Reset</button>
         </div>
         <div id="rumus-luas">
           <p>Rumus Luas Segitiga yaitu :</p>
@@ -43,19 +56,47 @@
 
       <section id="keliling">
         <h1>Kalkulator Keliling Segitiga</h1>
+        <div id="img-keliling-segitiga">
+          <span class="sisi-a" id="sisi-A"></span>
+          <span class="sisi-b" id="sisi-B"></span>
+          <span class="sisi-c" id="sisi-C"></span>
+        </div>
         <div id="container-keliling" class="container">
-          <div id="img-segitiga"></div>
           <form action="" id="form-keliling">
-            <label for="alas">Sisi A Segitiga</label>
-            <input type="number" name="A" id="A" placeholder="Nilai Sisi A" />
-            <label for="alas">Sisi B Segitiga</label>
-            <input type="number" name="B" id="B" placeholder="Nilai Sisi B" />
-            <label for="alas">Sisi C Segitiga</label>
-            <input type="number" name="C" id="C" placeholder="Nilai Sisi C" />
-
-            <button id="submit-keliling">Hitung</button>
+            <div>
+              <div class="container-input">
+                <label for="A">Sisi A Segitiga</label>
+                <input
+                  type="number"
+                  name="A"
+                  id="A"
+                  placeholder="Nilai Sisi A"
+                />
+              </div>
+              <div class="container-input">
+                <label for="B">Sisi B Segitiga</label>
+                <input
+                  type="number"
+                  name="B"
+                  id="B"
+                  placeholder="Nilai Sisi B"
+                />
+              </div>
+              <div class="container-input">
+                <label for="C">Sisi C Segitiga</label>
+                <input
+                  type="number"
+                  name="C"
+                  id="C"
+                  placeholder="Nilai Sisi C"
+                />
+              </div>
+            </div>
+            <div>
+              <button id="submit-keliling">Hitung</button>
+              <button id="reset-keliling">Reset</button>
+            </div>
           </form>
-          <button id="reset-keliling">Reset</button>
         </div>
         <div id="rumus-keliling">
           <p>Rumus Keliling Segitiga yaitu :</p>
