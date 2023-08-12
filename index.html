@@ -27,6 +27,8 @@
                     name="alas"
                     id="alas"
                     placeholder="Nilai Alas"
+                    onchange="removeValidation(event)"
+                    onkeypress="return onlyNumberValidation(event)"
                   />
                 </div>
                 <div class="container-input" id="container-tinggi">
@@ -36,18 +38,24 @@
                     name="tinggi"
                     id="tinggi"
                     placeholder="Nilai Alas"
+                    onchange="removeValidation(event)"
+                    onkeypress="return onlyNumberValidation(event)"
                   />
                 </div>
               </div>
               <div class="container-button">
-                <button id="submit-luas">Hitung</button>
-                <button id="reset-luas">Reset</button>
+                <button id="submit-luas" onclick="submtiLuas(event)">
+                  Hitung
+                </button>
+                <button id="reset-luas" onclick="resetLuas(event)">
+                  Reset
+                </button>
               </div>
             </form>
           </div>
         </div>
         <div id="luas-right">
-          <button>Hitung Keliling Segitiga</button>
+          <button onclick="slideToKeliling()">Hitung Keliling Segitiga</button>
           <div id="rumus-luas" class="container">
             <p>Rumus Luas Segitiga yaitu :</p>
             <p>L = 1/2 x a x t</p>
@@ -55,6 +63,14 @@
             <p>L = Luas</p>
             <p>a = Panjang Alas</p>
             <p>T = Tinggi Segitiga</p>
+          </div>
+          <div id="result-luas" class="container">
+            <h2>Hasil :</h2>
+            <div>
+              <p>L = 1/2 x a x t</p>
+              <p id="result-luas-row-1"></p>
+              <p id="result-luas-row-2"></p>
+            </div>
           </div>
         </div>
       </div>
@@ -80,6 +96,8 @@
                     name="A"
                     id="A"
                     placeholder="Nilai Sisi A"
+                    onchange="removeValidation(event)"
+                    onkeypress="return onlyNumberValidation(event)"
                   />
                 </div>
                 <div class="container-input" id="container-B">
@@ -89,6 +107,8 @@
                     name="B"
                     id="B"
                     placeholder="Nilai Sisi B"
+                    onchange="removeValidation(event)"
+                    onkeypress="return onlyNumberValidation(event)"
                   />
                 </div>
                 <div class="container-input" id="container-C">
@@ -98,26 +118,40 @@
                     name="C"
                     id="C"
                     placeholder="Nilai Sisi C"
+                    onchange="removeValidation(event)"
+                    onkeypress="return onlyNumberValidation(event)"
                   />
                 </div>
               </div>
               <div class="container-button">
-                <button id="submit-keliling">Hitung</button>
-                <button id="reset-keliling">Reset</button>
+                <button id="submit-keliling" onclick="submtiKeliling(event)">
+                  Hitung
+                </button>
+                <button id="reset-keliling" onclick="resetKeliling(event)">
+                  Reset
+                </button>
               </div>
             </form>
           </div>
         </div>
 
         <div id="keliling-right">
-          <button>Hitung Luas Segitiga</button>
+          <button onclick="slideToLuas()">Hitung Luas Segitiga</button>
           <div id="rumus-keliling" class="container">
             <p>Rumus Keliling Segitiga yaitu :</p>
-            <p>L = A + B + C</p>
+            <p>K = A + B + C</p>
             <p>Dimana:</p>
             <p>A = Sisi A</p>
             <p>B = Sisi B</p>
             <p>C = Sisi C</p>
+          </div>
+          <div id="result-keliling" class="container">
+            <h2>Hasil :</h2>
+            <div>
+              <p>K = A + B + C</p>
+              <p id="result-keliling-row-1"></p>
+              <p id="result-keliling-row-2"></p>
+            </div>
           </div>
         </div>
       </div>
