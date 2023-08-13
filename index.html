@@ -13,9 +13,9 @@
           <h1>Kalkulator Luas Segitiga</h1>
           <div id="img-luas-segitiga">
             <span class="sisi-a"></span>
-            <span class="sisi-b" id="sisi-alas"></span>
+            <span class="sisi-b" id="sisi-alas" data-text="a"></span>
             <span class="sisi-c"></span>
-            <span id="sisi-tinggi"></span>
+            <span id="sisi-tinggi" data-text="T"></span>
           </div>
           <div>
             <form action="" id="form-luas">
@@ -23,23 +23,25 @@
                 <div class="container-input" id="container-alas">
                   <label for="alas">Alas Segitiga (a)</label>
                   <input
-                    type="number"
+                    type="text"
                     name="alas"
                     id="alas"
                     placeholder="Nilai Alas"
                     onchange="removeValidation(event)"
                     onkeypress="return onlyNumberValidation(event)"
+                    oninput="onInput(event)"
                   />
                 </div>
                 <div class="container-input" id="container-tinggi">
                   <label for="tinggi">Tinggi Segitiga (T)</label>
                   <input
-                    type="number"
+                    type="text"
                     name="tinggi"
                     id="tinggi"
                     placeholder="Nilai Alas"
                     onchange="removeValidation(event)"
                     onkeypress="return onlyNumberValidation(event)"
+                    oninput="onInput(event)"
                   />
                 </div>
               </div>
@@ -47,7 +49,10 @@
                 <button id="submit-luas" onclick="submtiLuas(event)">
                   Hitung
                 </button>
-                <button id="reset-luas" onclick="resetLuas(event)">
+                <button
+                  id="reset-luas"
+                  onclick="resetAll(event, 'result-luas', ['alas', 'tinggi'], ['a', 'T'])"
+                >
                   Reset
                 </button>
               </div>
@@ -55,7 +60,7 @@
           </div>
         </div>
         <div id="luas-right">
-          <button onclick="slideToKeliling()">Hitung Keliling Segitiga</button>
+          <button onclick="slide('-100%')">Hitung Keliling Segitiga</button>
           <div id="rumus-luas" class="container">
             <p>Rumus Luas Segitiga yaitu :</p>
             <p>L = 1/2 x a x t</p>
@@ -82,9 +87,9 @@
         <div id="hitung-keliling" class="container">
           <h1>Kalkulator Keliling Segitiga</h1>
           <div id="img-keliling-segitiga">
-            <span class="sisi-a" id="sisi-A"></span>
-            <span class="sisi-b" id="sisi-B"></span>
-            <span class="sisi-c" id="sisi-C"></span>
+            <span class="sisi-a" id="sisi-A" data-text="A"></span>
+            <span class="sisi-b" id="sisi-B" data-text="B"> </span>
+            <span class="sisi-c" id="sisi-C" data-text="C"></span>
           </div>
           <div>
             <form action="" id="form-keliling">
@@ -92,34 +97,37 @@
                 <div class="container-input" id="container-A">
                   <label for="A">Sisi A Segitiga</label>
                   <input
-                    type="number"
+                    type="text"
                     name="A"
                     id="A"
                     placeholder="Nilai Sisi A"
                     onchange="removeValidation(event)"
                     onkeypress="return onlyNumberValidation(event)"
+                    oninput="onInput(event)"
                   />
                 </div>
                 <div class="container-input" id="container-B">
                   <label for="B">Sisi B Segitiga</label>
                   <input
-                    type="number"
+                    type="text"
                     name="B"
                     id="B"
                     placeholder="Nilai Sisi B"
                     onchange="removeValidation(event)"
                     onkeypress="return onlyNumberValidation(event)"
+                    oninput="onInput(event)"
                   />
                 </div>
                 <div class="container-input" id="container-C">
                   <label for="C">Sisi C Segitiga</label>
                   <input
-                    type="number"
+                    type="text"
                     name="C"
                     id="C"
                     placeholder="Nilai Sisi C"
                     onchange="removeValidation(event)"
                     onkeypress="return onlyNumberValidation(event)"
+                    oninput="onInput(event)"
                   />
                 </div>
               </div>
@@ -127,7 +135,10 @@
                 <button id="submit-keliling" onclick="submtiKeliling(event)">
                   Hitung
                 </button>
-                <button id="reset-keliling" onclick="resetKeliling(event)">
+                <button
+                  id="reset-keliling"
+                  onclick="resetAll(event,'result-keliling', ['A', 'B', 'C'], ['A', 'B', 'C'])"
+                >
                   Reset
                 </button>
               </div>
@@ -136,7 +147,7 @@
         </div>
 
         <div id="keliling-right">
-          <button onclick="slideToLuas()">Hitung Luas Segitiga</button>
+          <button onclick="slide('0')">Hitung Luas Segitiga</button>
           <div id="rumus-keliling" class="container">
             <p>Rumus Keliling Segitiga yaitu :</p>
             <p>K = A + B + C</p>

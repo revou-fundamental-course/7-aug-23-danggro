@@ -80,7 +80,9 @@ function removeValidation(event) {
 //Fungsi validasi pada input hanya bisa mengetikkan angka
 function onlyNumberValidation(event) {
   //Kondisi apabila key yang ditekan adalah angka bila bukan angka maka akan menghasilkan NaN dan kondisi true maka return false. Kondisi juga key yang ditekan bukan spasi
-  if (event.keyCode == 46) {
+  if (event.target.value.split('').includes('.') && event.keyCode == 46) {
+    return false;
+  } else if (event.keyCode == 46) {
     return true;
   }
   if (
@@ -90,52 +92,58 @@ function onlyNumberValidation(event) {
     return false;
 }
 
-function slideToKeliling() {
+function onInput(event) {
+  const sisi = document.getElementById(`sisi-${event.target.id}`);
+  let color;
+  let symbol;
+  const arr = [
+    ['alas', 'a', 'red'],
+    ['tinggi', 'T', 'blue'],
+    ['A', 'A', 'red'],
+    ['B', 'B', 'green'],
+    ['C', 'C', 'blue'],
+  ];
+
+  index = arr.findIndex((item) => item[0] == event.target.id);
+  color = arr[index][2];
+  symbol = arr[index][1];
+
+  if (event.target.value) {
+    sisi.style.backgroundColor = color;
+    sisi.setAttribute('data-text', `${symbol} = ${event.target.value}`);
+  } else {
+    sisi.style.backgroundColor = 'var(--text)';
+    sisi.setAttribute('data-text', `${symbol}`);
+  }
+}
+
+function resetHasil(container) {
+  const res = container.children[1];
+  res.style.top = '0';
+  res.style.opacity = '0';
+  container.style.paddingBottom = '';
+}
+
+function slide(value) {
   const sectionLuas = document.getElementById('luas');
   const sectionKeliling = document.getElementById('keliling');
 
-  sectionLuas.style.translate = '-100%';
-  sectionKeliling.style.translate = '-100%';
+  sectionLuas.style.translate = value;
+  sectionKeliling.style.translate = value;
 }
 
-function slideToLuas() {
-  const sectionLuas = document.getElementById('luas');
-  const sectionKeliling = document.getElementById('keliling');
-
-  sectionLuas.style.translate = '0';
-  sectionKeliling.style.translate = '0';
-}
-
-function resetLuas(event) {
+function resetAll(event, container, array, symbolArr) {
   event.preventDefault();
+  const containerResult = document.getElementById(container);
 
-  const alas = document.getElementById('alas');
-  const tinggi = document.getElementById('tinggi');
-  const containerResult = document.getElementById('result-luas');
+  array.forEach((item, index) => {
+    document.getElementById(item).value = '';
+    document.getElementById(`sisi-${item}`).style.backgroundColor =
+      'var(--text)';
+    document
+      .getElementById(`sisi-${item}`)
+      .setAttribute('data-text', symbolArr[index]);
+  });
 
-  const res = containerResult.children[1];
-  res.style.top = '0';
-  res.style.opacity = '0';
-  containerResult.style.paddingBottom = '';
-
-  alas.value = '';
-  tinggi.value = '';
-}
-
-function resetKeliling(event) {
-  event.preventDefault();
-
-  const A = document.getElementById('A');
-  const B = document.getElementById('B');
-  const C = document.getElementById('C');
-  const containerResult = document.getElementById('result-keliling');
-
-  const res = containerResult.children[1];
-  res.style.top = '0';
-  res.style.opacity = '0';
-  containerResult.style.paddingBottom = '';
-
-  A.value = '';
-  B.value = '';
-  C.value = '';
+  resetHasil(containerResult);
 }

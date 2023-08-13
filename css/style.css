@@ -134,31 +134,31 @@ section {
 }
 
 #sisi-alas::after {
-  content: 'a';
+  content: attr(data-text);
   left: 47%;
   top: 100%;
 }
 
 #sisi-tinggi::after {
-  content: 'T';
+  content: attr(data-text);
   left: 50%;
   top: 100%;
   transform: rotate(-90deg);
 }
 
 #sisi-A::after {
-  content: 'A';
+  content: attr(data-text);
   left: 47%;
   bottom: 200%;
   transform: rotate(60deg);
 }
 #sisi-B::after {
-  content: 'B';
+  content: attr(data-text);
   left: 47%;
   top: 100%;
 }
 #sisi-C::after {
-  content: 'C';
+  content: attr(data-text);
   left: 47%;
   bottom: 200%;
   transform: rotate(-60deg);
@@ -259,7 +259,7 @@ form button:hover {
   padding-block: 1rem;
   display: flex;
   position: fixed;
-  top: 80%;
+  top: 82%;
   left: 50%;
   translate: -50%;
   gap: 1rem;
