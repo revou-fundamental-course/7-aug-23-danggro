@@ -52,6 +52,7 @@ section {
   flex-shrink: 0;
   flex-grow: 0;
   transition: all 600ms ease-in-out;
+  /* translate: -100%; */
 }
 
 #keliling {
@@ -141,26 +142,41 @@ section {
 
 #sisi-tinggi::after {
   content: attr(data-text);
-  left: 50%;
-  top: 100%;
+  width: var(--width, 0);
+  left: var(--left, 50%);
+  top: var(--top, 0.5rem);
   transform: rotate(-90deg);
+  position: absolute;
 }
 
-#sisi-A::after {
-  content: attr(data-text);
-  left: 47%;
-  bottom: 200%;
-  transform: rotate(60deg);
-}
-#sisi-B::after {
-  content: attr(data-text);
-  left: 47%;
-  top: 100%;
-}
+#sisi-A::after,
+#sisi-B::after,
 #sisi-C::after {
   content: attr(data-text);
   left: 47%;
-  bottom: 200%;
+}
+
+#sisi-A::after {
+  width: var(--width, 0);
+  left: var(--left, 50%);
+  top: var(--top, -2rem);
+
+  transform: rotate(60deg);
+  position: absolute;
+  direction: rtl;
+}
+
+#sisi-B::after {
+  top: 100%;
+}
+
+#sisi-C::after {
+  width: var(--width, 0);
+  left: var(--left, 50%);
+  top: var(--top, -1.6rem);
+  /* width: var(--width, 100%);
+  left: var(--left, -10%);
+  top: var(--top, -5.9rem); */
   transform: rotate(-60deg);
 }
 /* Form */

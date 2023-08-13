@@ -115,6 +115,18 @@ function onInput(event) {
     sisi.style.backgroundColor = 'var(--text)';
     sisi.setAttribute('data-text', `${symbol}`);
   }
+
+  onInputSisi(
+    event.target,
+    sisi,
+    'tinggi',
+    ['50%', '-50%'],
+    ['0.5rem', '-6.5rem'],
+  );
+
+  onInputSisi(event.target, sisi, 'A', ['50%', '10%'], ['-2rem', '-6rem']);
+
+  onInputSisi(event.target, sisi, 'C', ['50%', '-10%'], ['-1.6rem', '-5.9rem']);
 }
 
 function resetHasil(container) {
@@ -143,7 +155,27 @@ function resetAll(event, container, array, symbolArr) {
     document
       .getElementById(`sisi-${item}`)
       .setAttribute('data-text', symbolArr[index]);
+    if (item == 'tinggi') resetInputSisi(item, '50%', '0.5rem');
+    if (item == 'A') resetInputSisi(item, '50%', '-2rem');
+    if (item == 'C') resetInputSisi(item, '50%', '-1.6rem');
   });
+}
 
-  resetHasil(containerResult);
+function onInputSisi(target, sisiElement, sisiName, arrLeft, arrTop) {
+  if (target.id == sisiName) {
+    sisiElement.style.setProperty('--width', '100%');
+    sisiElement.style.setProperty('--left', arrLeft[1]);
+    sisiElement.style.setProperty('--top', arrTop[1]);
+  }
+  if (!target.value && target.id == sisiName) {
+    sisiElement.style.setProperty('--width', '0');
+    sisiElement.style.setProperty('--left', arrLeft[0]);
+    sisiElement.style.setProperty('--top', arrTop[0]);
+  }
+}
+
+function resetInputSisi(item, left, top) {
+  document.getElementById(`sisi-${item}`).style.setProperty('--width', '0');
+  document.getElementById(`sisi-${item}`).style.setProperty('--left', left);
+  document.getElementById(`sisi-${item}`).style.setProperty('--top', top);
 }
