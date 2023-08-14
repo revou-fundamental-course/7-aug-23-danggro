@@ -75,7 +75,7 @@ section {
   opacity: 0;
 }
 
-/* Hitung Keliling & Luas */
+/* Container Hitung Keliling & Luas */
 .container-hitung {
   display: flex;
   flex-direction: column;
@@ -240,7 +240,7 @@ form button {
   color: var(--tertiary);
 }
 
-/* Luas Right */
+/* Right */
 .right button {
   font-size: 1.2rem;
   background-color: var(--secondary);
@@ -310,6 +310,7 @@ footer a {
 footer a:hover {
   background-color: var(--primary);
 }
+
 /* Validation */
 #container-alas::after,
 #container-tinggi::after,
@@ -367,6 +368,7 @@ footer a:hover {
   }
 }
 
+/* Mobile */
 @media only screen and (max-width: 375px) {
   body {
     height: auto;

@@ -7,64 +7,69 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- Section Kalkulator Luas -->
     <section id="luas">
+      <!-- Section Atas -->
       <div class="up">
+        <!-- Section Perhitungan Luas -->
         <div class="container container-hitung">
           <h1>Kalkulator Luas Segitiga</h1>
+          <!-- Segitiga -->
           <div class="img-segitiga">
             <span class="sisi-a"></span>
             <span class="sisi-b" id="sisi-alas" data-text="a"></span>
             <span class="sisi-c"></span>
             <span id="sisi-tinggi" data-text="T"></span>
           </div>
-          <div>
-            <form action="" id="form-luas">
-              <div>
-                <div class="container-input" id="container-alas">
-                  <label for="alas">Alas Segitiga (a)</label>
-                  <input
-                    type="text"
-                    name="alas"
-                    id="alas"
-                    placeholder="Nilai Alas"
-                    onchange="removeValidation(event)"
-                    onkeypress="return onlyNumberValidation(event)"
-                    oninput="onInput(event)"
-                  />
-                </div>
-                <div class="container-input" id="container-tinggi">
-                  <label for="tinggi">Tinggi Segitiga (T)</label>
-                  <input
-                    type="text"
-                    name="tinggi"
-                    id="tinggi"
-                    placeholder="Nilai Alas"
-                    onchange="removeValidation(event)"
-                    onkeypress="return onlyNumberValidation(event)"
-                    oninput="onInput(event)"
-                  />
-                </div>
+          <form action="" id="form-luas">
+            <div>
+              <div class="container-input" id="container-alas">
+                <label for="alas">Alas Segitiga (a)</label>
+                <input
+                  type="text"
+                  name="alas"
+                  id="alas"
+                  placeholder="Nilai Alas"
+                  onchange="removeValidation(event)"
+                  onkeypress="return onlyNumberValidation(event)"
+                  oninput="onInput(event)"
+                />
               </div>
-              <div class="container-button">
-                <button
-                  id="submit-luas"
-                  class="submit"
-                  onclick="submtiLuas(event)"
-                >
-                  Hitung
-                </button>
-                <button
-                  class="reset"
-                  id="reset-luas"
-                  onclick="resetAll(event, 'result-luas', ['alas', 'tinggi'], ['a', 'T'])"
-                >
-                  Reset
-                </button>
+              <div class="container-input" id="container-tinggi">
+                <label for="tinggi">Tinggi Segitiga (T)</label>
+                <input
+                  type="text"
+                  name="tinggi"
+                  id="tinggi"
+                  placeholder="Nilai Alas"
+                  onchange="removeValidation(event)"
+                  onkeypress="return onlyNumberValidation(event)"
+                  oninput="onInput(event)"
+                />
               </div>
-            </form>
-          </div>
+            </div>
+            <div class="container-button">
+              <button
+                id="submit-luas"
+                class="submit"
+                onclick="submtiLuas(event)"
+              >
+                Hitung
+              </button>
+              <button
+                class="reset"
+                id="reset-luas"
+                onclick="resetAll(event, 'result-luas', ['alas', 'tinggi'], ['a', 'T'])"
+              >
+                Reset
+              </button>
+            </div>
+          </form>
         </div>
+
+        <!-- Right -->
         <div class="right">
+          <!-- Button ke Kalkulator Keliling -->
           <button onclick="slide('-100%')">
             Hitung Keliling Segitiga
             <svg
@@ -83,6 +88,7 @@
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </button>
+          <!-- Section Rumus Luas -->
           <div id="rumus-luas" class="container">
             <p>Rumus Luas Segitiga yaitu :</p>
             <p>L = 1/2 x a x T</p>
@@ -91,6 +97,7 @@
             <p>a = Panjang Alas</p>
             <p>T = Tinggi Segitiga</p>
           </div>
+          <!-- Section Hasil Luas -->
           <div id="result-luas" class="container">
             <h2>Hasil :</h2>
             <div>
@@ -104,76 +111,81 @@
       <div class="down container">.</div>
     </section>
 
+    <!-- Section Kalkulator Keliling -->
     <section id="keliling">
+      <!-- Section Atas -->
       <div class="up">
+        <!-- Section Perhitungan -->
         <div class="container container-hitung">
           <h1>Kalkulator Keliling Segitiga</h1>
+          <!-- Segitiga -->
           <div class="img-segitiga">
             <span class="sisi-a" id="sisi-A" data-text="A"></span>
             <span class="sisi-b" id="sisi-B" data-text="B"> </span>
             <span class="sisi-c" id="sisi-C" data-text="C"></span>
           </div>
-          <div>
-            <form action="" id="form-keliling">
-              <div>
-                <div class="container-input" id="container-A">
-                  <label for="A">Sisi A Segitiga</label>
-                  <input
-                    type="text"
-                    name="A"
-                    id="A"
-                    placeholder="Nilai Sisi A"
-                    onchange="removeValidation(event)"
-                    onkeypress="return onlyNumberValidation(event)"
-                    oninput="onInput(event)"
-                  />
-                </div>
-                <div class="container-input" id="container-B">
-                  <label for="B">Sisi B Segitiga</label>
-                  <input
-                    type="text"
-                    name="B"
-                    id="B"
-                    placeholder="Nilai Sisi B"
-                    onchange="removeValidation(event)"
-                    onkeypress="return onlyNumberValidation(event)"
-                    oninput="onInput(event)"
-                  />
-                </div>
-                <div class="container-input" id="container-C">
-                  <label for="C">Sisi C Segitiga</label>
-                  <input
-                    type="text"
-                    name="C"
-                    id="C"
-                    placeholder="Nilai Sisi C"
-                    onchange="removeValidation(event)"
-                    onkeypress="return onlyNumberValidation(event)"
-                    oninput="onInput(event)"
-                  />
-                </div>
+          <!-- Form Input Sisi Segitiga -->
+          <form action="" id="form-keliling">
+            <div>
+              <div class="container-input" id="container-A">
+                <label for="A">Sisi A Segitiga</label>
+                <input
+                  type="text"
+                  name="A"
+                  id="A"
+                  placeholder="Nilai Sisi A"
+                  onchange="removeValidation(event)"
+                  onkeypress="return onlyNumberValidation(event)"
+                  oninput="onInput(event)"
+                />
               </div>
-              <div class="container-button">
-                <button
-                  id="submit-keliling"
-                  class="submit"
-                  onclick="submtiKeliling(event)"
-                >
-                  Hitung
-                </button>
-                <button
-                  class="reset"
-                  id="reset-keliling"
-                  onclick="resetAll(event,'result-keliling', ['A', 'B', 'C'], ['A', 'B', 'C'])"
-                >
-                  Reset
-                </button>
+              <div class="container-input" id="container-B">
+                <label for="B">Sisi B Segitiga</label>
+                <input
+                  type="text"
+                  name="B"
+                  id="B"
+                  placeholder="Nilai Sisi B"
+                  onchange="removeValidation(event)"
+                  onkeypress="return onlyNumberValidation(event)"
+                  oninput="onInput(event)"
+                />
               </div>
-            </form>
-          </div>
+              <div class="container-input" id="container-C">
+                <label for="C">Sisi C Segitiga</label>
+                <input
+                  type="text"
+                  name="C"
+                  id="C"
+                  placeholder="Nilai Sisi C"
+                  onchange="removeValidation(event)"
+                  onkeypress="return onlyNumberValidation(event)"
+                  oninput="onInput(event)"
+                />
+              </div>
+            </div>
+            <div class="container-button">
+              <button
+                id="submit-keliling"
+                class="submit"
+                onclick="submtiKeliling(event)"
+              >
+                Hitung
+              </button>
+              <button
+                class="reset"
+                id="reset-keliling"
+                onclick="resetAll(event,'result-keliling', ['A', 'B', 'C'], ['A', 'B', 'C'])"
+              >
+                Reset
+              </button>
+            </div>
+          </form>
         </div>
 
+        <!-- Right -->
         <div class="right">
+          <!-- Button ke Kalkulator Luas -->
           <button onclick="slide('0')">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -192,6 +204,7 @@
             </svg>
             Hitung Luas Segitiga
           </button>
+          <!-- Section Rumus Keliling -->
           <div id="rumus-keliling" class="container">
             <p>Rumus Keliling Segitiga yaitu :</p>
             <p>K = A + B + C</p>
@@ -200,6 +213,7 @@
             <p>B = Sisi B</p>
             <p>C = Sisi C</p>
           </div>
+          <!-- Section Hasil Keliling -->
           <div id="result-keliling" class="container">
             <h2>Hasil :</h2>
             <div>
@@ -213,9 +227,11 @@
       <div class="down container">.</div>
     </section>
 
+    <!-- Footer -->
     <footer>
       <div id="footer" class="container">
         <p>Created by Danggro</p>
+        <!-- Link Media Sosial-->
         <div>
           <a target="_blank" href="https://twitter.com/ikutkatamamah">
             <svg

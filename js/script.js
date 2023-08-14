@@ -1,13 +1,20 @@
+// Function saat button submit pada luas ditekan
 function submtiLuas(event) {
+  // Mencegah halaman untuk reload
   event.preventDefault();
 
+  // Define input alas dan tinggi
   const alas = document.getElementById('alas');
   const tinggi = document.getElementById('tinggi');
 
+  // Define elemen pada hasil
   const containerResult = document.getElementById('result-luas');
   const row1 = document.getElementById('result-luas-row-1');
   const row2 = document.getElementById('result-luas-row-2');
+
   let result;
+
+  // Kondisi apabila input kosong
   if (!alas.value || !tinggi.value) {
     if (!alas.value) {
       checkValidation(alas);
@@ -15,11 +22,13 @@ function submtiLuas(event) {
     if (!tinggi.value) {
       checkValidation(tinggi);
     }
+    // Kondisi apabila input valid
   } else {
     result = (1 / 2) * alas.value * tinggi.value;
     row1.innerHTML = `L = 1/2 x ${alas.value} x ${tinggi.value}`;
     row2.innerHTML = `L = ${Math.round(result * 100) / 100}`;
 
+    // Animasi hasil
     const res = containerResult.children[1];
     res.style.top = '40%';
     res.style.opacity = '100%';
@@ -27,18 +36,24 @@ function submtiLuas(event) {
   }
 }
 
+// Function saat button submit pada luas ditekan
 function submtiKeliling(event) {
+  // Mencegah halaman untuk reload
   event.preventDefault();
 
+  // Define input untuk sisi A, B dan C
   const A = document.getElementById('A');
   const B = document.getElementById('B');
   const C = document.getElementById('C');
 
+  // Define elemen pada hasil
   const containerResult = document.getElementById('result-keliling');
   const row1 = document.getElementById('result-keliling-row-1');
   const row2 = document.getElementById('result-keliling-row-2');
 
   let result;
+
+  // Kondisi apabila input kosong
   if (!A.value || !B.value || !C.value) {
     if (!A.value) {
       checkValidation(A);
@@ -49,11 +64,13 @@ function submtiKeliling(event) {
     if (!C.value) {
       checkValidation(C);
     }
+    // Kondisi apabila input valid
   } else {
     result = parseFloat(A.value) + parseFloat(B.value) + parseFloat(C.value);
     row1.innerHTML = `K = ${A.value} + ${B.value} + ${C.value}`;
     row2.innerHTML = `K = ${Math.round(result * 100) / 100}`;
 
+    // Animasi hasil
     const res = containerResult.children[1];
     res.style.top = '39%';
     res.style.opacity = '100%';
@@ -61,6 +78,7 @@ function submtiKeliling(event) {
   }
 }
 
+// Fungsi apabila input tidak valid atau kosong
 function checkValidation(input) {
   input.parentElement.style.setProperty('--opacity', 100);
   input.parentElement.style.setProperty('--translate', 'translateY(0)');
@@ -79,12 +97,13 @@ function removeValidation(event) {
 
 //Fungsi validasi pada input hanya bisa mengetikkan angka
 function onlyNumberValidation(event) {
-  //Kondisi apabila key yang ditekan adalah angka bila bukan angka maka akan menghasilkan NaN dan kondisi true maka return false. Kondisi juga key yang ditekan bukan spasi
+  // Kondisi pengecualian untuk titik yang digunakan sebagai koma pada input
   if (event.target.value.split('').includes('.') && event.keyCode == 46) {
     return false;
   } else if (event.keyCode == 46) {
     return true;
   }
+  //Kondisi apabila key yang ditekan adalah angka bila bukan angka maka akan menghasilkan NaN dan kondisi true maka return false. Kondisi juga key yang ditekan bukan spasi
   if (
     isNaN(String.fromCharCode(event.keyCode)) ||
     ['Space'].includes(arguments[0].code)
@@ -92,10 +111,15 @@ function onlyNumberValidation(event) {
     return false;
 }
 
+// Fungsi untuk menampilkan nilai pada gambar segitiga
 function onInput(event) {
+  // Define elemen sisi pada segitiga
   const sisi = document.getElementById(`sisi-${event.target.id}`);
+
   let color;
   let symbol;
+
+  // Array yang menampung data sisi segitiga
   const arr = [
     ['alas', 'a', 'red'],
     ['tinggi', 'T', 'blue'],
@@ -104,10 +128,14 @@ function onInput(event) {
     ['C', 'C', 'blue'],
   ];
 
+  // Mencari index pada arr yang sesuai dengan sisi yang sedang diinput
   index = arr.findIndex((item) => item[0] == event.target.id);
+
+  // Mengambil nilai warna dan simbol yang sesuai dengan index
   color = arr[index][2];
   symbol = arr[index][1];
 
+  // Kondisi untuk mengubah warna dan nilai pada segitiga
   if (event.target.value) {
     sisi.style.backgroundColor = color;
     sisi.setAttribute('data-text', `${symbol} = ${event.target.value}`);
@@ -129,6 +157,7 @@ function onInput(event) {
   onInputSisi(event.target, sisi, 'C', ['50%', '-10%'], ['-1.6rem', '-5.9rem']);
 }
 
+// Fungsi untuk mereset hasil
 function resetHasil(container) {
   const res = container.children[1];
   res.style.top = '0';
@@ -136,35 +165,49 @@ function resetHasil(container) {
   container.style.paddingBottom = '';
 }
 
+// Fungsi untuk mengganti kalkulator dari luas ke keliling atau sebaliknya
 function slide(value) {
+  // Define element section luas dan keliling
   const sectionLuas = document.getElementById('luas');
   const sectionKeliling = document.getElementById('keliling');
   const footer = document.getElementsByTagName('footer')[0];
+
+  // Kondisi untuk footer agar tetap di bawah section luas pada saat di resolusi mobile
   if (window.outerWidth <= 375) footer.style.translate = value;
 
   sectionLuas.style.translate = value;
   sectionKeliling.style.translate = value;
 }
 
+// Fungis untuk mereset input, nilai pada symbol dan hasil sesuai dengan section luas atau keliling
 function resetAll(event, container, array, symbolArr) {
+  // Mencegah halaman reload
   event.preventDefault();
   const containerResult = document.getElementById(container);
 
+  // Mereset hasil
   resetHasil(containerResult);
 
   array.forEach((item, index) => {
+    // Mereset value input
     document.getElementById(item).value = '';
+
+    // Mereset warna pada segitiga
     document.getElementById(`sisi-${item}`).style.backgroundColor =
       'var(--text)';
+    // Mereset simbol pada segitiga
     document
       .getElementById(`sisi-${item}`)
       .setAttribute('data-text', symbolArr[index]);
+
+    // Kondisi untuk mereset letak symbol saat tidak ada nilai pada input
     if (item == 'tinggi') resetInputSisi(item, '50%', '0.5rem');
     if (item == 'A') resetInputSisi(item, '50%', '-2rem');
     if (item == 'C') resetInputSisi(item, '50%', '-1.6rem');
   });
 }
 
+// Fungsi untuk mengubah letak dan value pada segitiga
 function onInputSisi(target, sisiElement, sisiName, arrLeft, arrTop) {
   if (target.id == sisiName) {
     sisiElement.style.setProperty('--width', '100%');
@@ -178,6 +221,7 @@ function onInputSisi(target, sisiElement, sisiName, arrLeft, arrTop) {
   }
 }
 
+// Fungsi untuk mereset letak simbol pada segitiga
 function resetInputSisi(item, left, top) {
   document.getElementById(`sisi-${item}`).style.setProperty('--width', '0');
   document.getElementById(`sisi-${item}`).style.setProperty('--left', left);
