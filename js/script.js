@@ -18,7 +18,7 @@ function submtiLuas(event) {
   } else {
     result = (1 / 2) * alas.value * tinggi.value;
     row1.innerHTML = `L = 1/2 x ${alas.value} x ${tinggi.value}`;
-    row2.innerHTML = `L = ${result}`;
+    row2.innerHTML = `L = ${Math.round(result * 100) / 100}`;
 
     const res = containerResult.children[1];
     res.style.top = '40%';
@@ -52,7 +52,7 @@ function submtiKeliling(event) {
   } else {
     result = parseFloat(A.value) + parseFloat(B.value) + parseFloat(C.value);
     row1.innerHTML = `K = ${A.value} + ${B.value} + ${C.value}`;
-    row2.innerHTML = `K = ${result}`;
+    row2.innerHTML = `K = ${Math.round(result * 100) / 100}`;
 
     const res = containerResult.children[1];
     res.style.top = '39%';
@@ -147,6 +147,8 @@ function slide(value) {
 function resetAll(event, container, array, symbolArr) {
   event.preventDefault();
   const containerResult = document.getElementById(container);
+
+  resetHasil(containerResult);
 
   array.forEach((item, index) => {
     document.getElementById(item).value = '';

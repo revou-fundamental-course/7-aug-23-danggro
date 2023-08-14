@@ -9,9 +9,9 @@
   <body>
     <section id="luas">
       <div class="up">
-        <div id="hitung-luas" class="container">
+        <div class="container container-hitung">
           <h1>Kalkulator Luas Segitiga</h1>
-          <div id="img-luas-segitiga">
+          <div class="img-segitiga">
             <span class="sisi-a"></span>
             <span class="sisi-b" id="sisi-alas" data-text="a"></span>
             <span class="sisi-c"></span>
@@ -46,10 +46,15 @@
                 </div>
               </div>
               <div class="container-button">
-                <button id="submit-luas" onclick="submtiLuas(event)">
+                <button
+                  id="submit-luas"
+                  class="submit"
+                  onclick="submtiLuas(event)"
+                >
                   Hitung
                 </button>
                 <button
+                  class="reset"
                   id="reset-luas"
                   onclick="resetAll(event, 'result-luas', ['alas', 'tinggi'], ['a', 'T'])"
                 >
@@ -59,8 +64,25 @@
             </form>
           </div>
         </div>
-        <div id="luas-right">
-          <button onclick="slide('-100%')">Hitung Keliling Segitiga</button>
+        <div class="right">
+          <button onclick="slide('-100%')">
+            Hitung Keliling Segitiga
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-arrow-right"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
           <div id="rumus-luas" class="container">
             <p>Rumus Luas Segitiga yaitu :</p>
             <p>L = 1/2 x a x t</p>
@@ -84,9 +106,9 @@
 
     <section id="keliling">
       <div class="up">
-        <div id="hitung-keliling" class="container">
+        <div class="container container-hitung">
           <h1>Kalkulator Keliling Segitiga</h1>
-          <div id="img-keliling-segitiga">
+          <div class="img-segitiga">
             <span class="sisi-a" id="sisi-A" data-text="A"></span>
             <span class="sisi-b" id="sisi-B" data-text="B"> </span>
             <span class="sisi-c" id="sisi-C" data-text="C"></span>
@@ -132,10 +154,15 @@
                 </div>
               </div>
               <div class="container-button">
-                <button id="submit-keliling" onclick="submtiKeliling(event)">
+                <button
+                  id="submit-keliling"
+                  class="submit"
+                  onclick="submtiKeliling(event)"
+                >
                   Hitung
                 </button>
                 <button
+                  class="reset"
                   id="reset-keliling"
                   onclick="resetAll(event,'result-keliling', ['A', 'B', 'C'], ['A', 'B', 'C'])"
                 >
@@ -146,8 +173,25 @@
           </div>
         </div>
 
-        <div id="keliling-right">
-          <button onclick="slide('0')">Hitung Luas Segitiga</button>
+        <div class="right">
+          <button onclick="slide('0')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-arrow-left"
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Hitung Luas Segitiga
+          </button>
           <div id="rumus-keliling" class="container">
             <p>Rumus Keliling Segitiga yaitu :</p>
             <p>K = A + B + C</p>
