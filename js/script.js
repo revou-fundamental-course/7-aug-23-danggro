@@ -139,8 +139,8 @@ function resetHasil(container) {
 function slide(value) {
   const sectionLuas = document.getElementById('luas');
   const sectionKeliling = document.getElementById('keliling');
-
-  if (window.outerWidth <= 375) return (document.body.style.translate = value);
+  const footer = document.getElementsByTagName('footer')[0];
+  if (window.outerWidth <= 375) footer.style.translate = value;
 
   sectionLuas.style.translate = value;
   sectionKeliling.style.translate = value;
