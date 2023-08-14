@@ -140,6 +140,8 @@ function slide(value) {
   const sectionLuas = document.getElementById('luas');
   const sectionKeliling = document.getElementById('keliling');
 
+  if (window.outerWidth <= 375) return (document.body.style.translate = value);
+
   sectionLuas.style.translate = value;
   sectionKeliling.style.translate = value;
 }
