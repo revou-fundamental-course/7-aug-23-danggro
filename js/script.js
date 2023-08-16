@@ -98,17 +98,14 @@ function removeValidation(event) {
 //Fungsi validasi pada input hanya bisa mengetikkan angka
 function onlyNumberValidation(event) {
   // Kondisi pengecualian untuk titik yang digunakan sebagai koma pada input
-  if (event.target.value.split('').includes('.') && event.keyCode == 46) {
-    return false;
-  } else if (event.keyCode == 46) {
-    return true;
+  // Kondisi apabila key yang ditekan adalah angka bila bukan angka maka akan menghasilkan NaN dan kondisi true maka return false. Kondisi juga key yang ditekan bukan spasi
+  if (window.outerWidth <= 375) {
+    if (
+      isNaN(String.fromCharCode(event.keyCode)) ||
+      ['Space'].includes(arguments[0].code)
+    )
+      return false;
   }
-  //Kondisi apabila key yang ditekan adalah angka bila bukan angka maka akan menghasilkan NaN dan kondisi true maka return false. Kondisi juga key yang ditekan bukan spasi
-  if (
-    isNaN(String.fromCharCode(event.keyCode)) ||
-    ['Space'].includes(arguments[0].code)
-  )
-    return false;
 }
 
 // Fungsi untuk menampilkan nilai pada gambar segitiga
@@ -127,6 +124,15 @@ function onInput(event) {
     ['B', 'B', 'green'],
     ['C', 'C', 'blue'],
   ];
+
+  const input = Array.from(document.getElementsByTagName('input'));
+  if (window.outerWidth >= 375) {
+    input.forEach((item) => item.setAttribute('type', 'text'));
+    var clean = event.target.value
+      .replace(/[^0-9\.]/g, '')
+      .replace(/(\..*?)\.(.*\.)?/, '$1');
+    if (clean !== event.target.value) event.target.value = clean;
+  }
 
   // Mencari index pada arr yang sesuai dengan sisi yang sedang diinput
   index = arr.findIndex((item) => item[0] == event.target.id);

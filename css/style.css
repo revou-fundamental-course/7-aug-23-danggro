@@ -218,6 +218,7 @@ form button {
   padding: 0.5rem 1rem;
   cursor: pointer;
   font-weight: 600;
+  z-index: 9999;
 }
 
 .submit {
@@ -433,5 +434,12 @@ footer a:hover {
   #footer {
     position: static;
     translate: 0;
+  }
+  #container-alas::after,
+  #container-tinggi::after,
+  #container-A::after,
+  #container-B::after,
+  #container-C::after {
+    font-size: 0.75rem;
   }
 }
