@@ -72,9 +72,9 @@ function submtiKeliling(event) {
 
     // Animasi hasil
     const res = containerResult.children[1];
-    res.style.top = '39%';
+    res.style.top = '40%';
     res.style.opacity = '100%';
-    containerResult.style.paddingBottom = '30%';
+    containerResult.style.paddingBottom = '32%';
   }
 }
 
@@ -108,6 +108,15 @@ function onlyNumberValidation(event) {
   }
 }
 
+// Kondisi untuk mengubah type input pada mobile
+if (window.outerWidth >= 375) {
+  const input = Array.from(document.getElementsByTagName('input'));
+  input.forEach((item) => item.setAttribute('type', 'text'));
+} else {
+  const input = Array.from(document.getElementsByTagName('input'));
+  input.forEach((item) => item.setAttribute('type', 'number'));
+}
+
 // Fungsi untuk menampilkan nilai pada gambar segitiga
 function onInput(event) {
   // Define elemen sisi pada segitiga
@@ -125,10 +134,9 @@ function onInput(event) {
     ['C', 'C', 'blue'],
   ];
 
-  const input = Array.from(document.getElementsByTagName('input'));
+  // Mencegah input bernilai selain angka pada resolusi lebih dari 375
   if (window.outerWidth >= 375) {
-    input.forEach((item) => item.setAttribute('type', 'text'));
-    var clean = event.target.value
+    let clean = event.target.value
       .replace(/[^0-9\.]/g, '')
       .replace(/(\..*?)\.(.*\.)?/, '$1');
     if (clean !== event.target.value) event.target.value = clean;
